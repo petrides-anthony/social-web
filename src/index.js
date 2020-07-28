@@ -4,12 +4,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Header from './components/Header/Header'
 
-class HelloMessage extends React.Component {
+class Page extends React.Component {
     render() {
         return <div>
             <Header/>
             <div className="container">
-                <h1>Hello {this.props.name}</h1>
+                <h1>{this.props.title}</h1>
             </div>
         </div>
     }
@@ -17,4 +17,4 @@ class HelloMessage extends React.Component {
 
 let App = document.getElementById("app");
 
-ReactDOM.render(<HelloMessage name="Yomi" />, App);
+ReactDOM.render(<Page title="Social Web" />, App);
