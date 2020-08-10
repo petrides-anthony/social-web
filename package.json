@@ -16,9 +16,9 @@
     "tailwindcss": "^1.6.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
     "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "parcel": "^1.12.4"
   }
 }
