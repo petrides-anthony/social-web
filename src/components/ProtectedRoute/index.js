@@ -4,9 +4,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import { useIsAuthenticated } from '../Authentication';
+
 export default function ProtectedRoute({ children, ...rest }) {
-  // TODO
-  const isAuthenticated = true;
+  const isAuthenticated = useIsAuthenticated();
 
   return (
     <Route
