@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, createRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useLogin, useIsAuthenticated } from "../Authentication";
 
 const LoginPage = () => {
+  const [inputValue, setInputValue] = useState('');
+
   const history = useHistory();
   const isAuthenticated = useIsAuthenticated();
 
@@ -26,7 +28,10 @@ const LoginPage = () => {
   return (
     <div>
       <p>Login</p>
-      <button onClick={() => login('Luca Colonnello')}>Login as Luca Colonnello</button>
+      <input value={inputValue} onChange={e => setInputValue(e.target.value)} type="text" placeholder="Tell me your username" />
+      <button onClick={() => {
+        login(inputValue);
+      }}>{inputValue ? `Login as ${inputValue}` : 'Login'}</button>
     </div>
   );
 };

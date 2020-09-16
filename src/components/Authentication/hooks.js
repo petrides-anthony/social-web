@@ -6,6 +6,11 @@ const useIsAuthenticated = () => {
   return authenticationState.authenticated;
 };
 
+const useUsername = () => {
+  const { authenticationState } = React.useContext(AuthenticationContext);
+  return authenticationState.username;
+};
+
 const useLogin = () => {
   const { dispatch } = React.useContext(AuthenticationContext);
 
@@ -30,6 +35,7 @@ const useLogout = () => {
 
 export {
   useIsAuthenticated,
+  useUsername,
   useLogin,
   useLogout,
 };
