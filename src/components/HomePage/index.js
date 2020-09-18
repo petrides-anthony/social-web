@@ -20,3 +20,5 @@ export default HomePage;
 
 // task
 // tailwind css with post css and parcel to style homepage/ login page
+// Ref; https://mertjf.github.io/tailblocks/
+// https://tailwindui.com/components/application-ui/forms/sign-in-forms
