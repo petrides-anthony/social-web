@@ -26,12 +26,16 @@ const LoginPage = () => {
   const login = useLogin();
 
   return (
-    <div>
+    <div className="container mx-auto px-4">
       <p><strong>Login Page</strong></p>
+
       <input value={inputValue} onChange={e => setInputValue(e.target.value)} type="text" placeholder="Tell me your username" />
-      <button onClick={() => {
+
+      <button className="group relative flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" onClick={() => {
         login(inputValue);
-      }}>{inputValue ? `Login as ${inputValue}` : 'Login'}</button>
+      }}>{inputValue ? `Login as ${inputValue}` : 'Login'}
+      </button>
+
     </div>
   );
 };
