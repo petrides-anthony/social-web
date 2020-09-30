@@ -27,7 +27,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <p>Login</p>
+      <p><strong>Login Page</strong></p>
       <input value={inputValue} onChange={e => setInputValue(e.target.value)} type="text" placeholder="Tell me your username" />
       <button onClick={() => {
         login(inputValue);
