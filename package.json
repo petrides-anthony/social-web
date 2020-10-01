@@ -6,6 +6,7 @@
   "author": "Anthony Petrides <Anthony.Petrides@thetrainline.com>",
   "license": "MIT",
   "scripts": {
+    "build": "rm -rf dist && NODE_ENV=production yarn parcel build index.html",
     "start": "parcel index.html"
   },
   "dependencies": {

@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 
 import { useLogin, useIsAuthenticated } from "../Authentication";
 
+import LoginButton from "../OnPageComponents/LoginButton";
+
 const LoginPage = () => {
   const [inputValue, setInputValue] = useState('');
 
@@ -27,14 +29,12 @@ const LoginPage = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <p><strong>Login Page</strong></p>
+      <h1>Login Page</h1>
+      <br/>
+      <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" value={inputValue} onChange={e => setInputValue(e.target.value)} type="text" placeholder="Tell me your username" />
+      <br/><br/>
 
-      <input value={inputValue} onChange={e => setInputValue(e.target.value)} type="text" placeholder="Tell me your username" />
-
-      <button className="group relative flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" onClick={() => {
-        login(inputValue);
-      }}>{inputValue ? `Login as ${inputValue}` : 'Login'}
-      </button>
+      <LoginButton InputValue={inputValue} Login={login}/>
 
     </div>
   );
