@@ -11,6 +11,7 @@ import { AuthenticationProvider } from "./components/Authentication";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage";
+import AboutPage from "./components/AboutPage";
 
 //import "./index.pcss";
 
@@ -21,6 +22,9 @@ const App = () => {
         <Switch>
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
           </Route>
           <ProtectedRoute path="/">
             <HomePage />
