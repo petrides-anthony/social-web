@@ -32,7 +32,7 @@ const LoginPage = () => {
     <div>
       <NavBar />
         <div class="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
-          <h1 class="block w-full text-center text-grey-darkest mb-6">Login Page</h1>
+          <h1 class="block w-full text-center text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase mb-6">Login Page</h1>
           <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" value={inputValue} onChange={e => setInputValue(e.target.value)} type="text" placeholder="Tell me your username" />
           <LoginButton InputValue={inputValue} Login={login}/>
       </div>
