@@ -1,10 +1,10 @@
 import React, { useState, createRef } from "react";
 import { useHistory } from "react-router-dom";
 
-import { useLogin, useIsAuthenticated } from "../Authentication";
+import { useLogin, useIsAuthenticated } from "../../utils/Authentication";
 
-import Button from "../OnPageComponents/Button";
-import NavBar from "../OnPageComponents/NavBar";
+import Button from "../../common/Button";
+import NavBar from "../../common/NavBar";
 
 const LoginPage = () => {
   const [inputValue, setInputValue] = useState('');

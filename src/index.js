@@ -6,12 +6,12 @@ import {
   Route,
 } from "react-router-dom";
 
-import { AuthenticationProvider } from "./components/Authentication";
+import { AuthenticationProvider } from "./components/utils/Authentication";
 
-import ProtectedRoute from "./components/ProtectedRoute";
-import LoginPage from "./components/LoginPage";
-import HomePage from "./components/HomePage";
-import AboutPage from "./components/AboutPage";
+import ProtectedRoute from "./components/utils/ProtectedRoute";
+import LoginPage from "./components/pages/LoginPage";
+import HomePage from "./components/pages/HomePage";
+import AboutPage from "./components/pages/AboutPage";
 
 //import "./index.pcss";
 

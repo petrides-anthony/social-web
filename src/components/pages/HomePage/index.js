@@ -1,9 +1,9 @@
 import React from "react";
 
-import { useLogout, useUsername } from "../Authentication";
+import { useLogout, useUsername } from "../../utils/Authentication";
 
-import NavBar from "../OnPageComponents/NavBar";
-import Button from "../OnPageComponents/Button"
+import NavBar from "../../common/NavBar";
+import Button from "../../common/Button"
 
 const HomePage = () => {
   const logout = useLogout();
