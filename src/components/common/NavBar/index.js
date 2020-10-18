@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
-const NavBar = (props) => {
+import Button from "../../common/Button";
 
+import { useLogout, useUsername } from "../../utils/Authentication";
+
+const NavBar = (props) => {
+    const logout = useLogout();
   return (
     <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -27,7 +31,9 @@ const NavBar = (props) => {
                 </div>
                 </div>
             </div>
-
+            <Button onClick={() => logout()}>
+                Logout
+            </Button>
             </div>
         </div>
     </nav>
