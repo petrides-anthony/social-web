@@ -91,8 +91,8 @@ const AboutPage = (props) => {
       </ul>
     </div>
   </div>
-        </div>
-    </div>
+  </div>
+  </div>
   );
 };
 
