@@ -25,6 +25,10 @@ const PostList = (props) => {
   const postContent = postData.content;
   const postLikes = postData.likes;
 
+  //ToDO:
+  // Show posts for each post
+  // Only show posts owned by the logged in user. i.e. where data.user === data.loggedInUser
+
   return (
     <div>
 
