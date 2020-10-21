@@ -11,21 +11,22 @@ const HomePage = () => {
 
   return (
     <div>
-    <NavBar/>
-    <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
-      <div className="container px-4">
-        <p className="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase mt-4 text-center">Welcome Home {username}</p>
+      <NavBar />
+      <div className="w-full bg-white rounded shadow-lg p-8 m-4 max-w-3xl md:mx-auto">
+        <div className="container px-4">
+          <p className="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase mt-4 text-center">
+            Welcome Home {username}
+          </p>
+        </div>
       </div>
-      </div>
-      <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
-      <PostList user="0"/>
+      <div className="w-full bg-white rounded shadow-lg p-8 m-4 max-w-3xl md:mx-auto">
+        <PostList />
       </div>
     </div>
   );
 };
 
 export default HomePage;
-
 
 // task
 // tailwind css with post css and parcel to style homepage/ login page
