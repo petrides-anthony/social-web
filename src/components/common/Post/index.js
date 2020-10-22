@@ -1,4 +1,7 @@
 import React from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 const Post = (props) => {
   const postData = props.postData;
@@ -9,6 +12,7 @@ const Post = (props) => {
 
   //ToDO:
   // Day Js - use this to format date.
+  // https://day.js.org/docs/en/display/format
 
   return (
     <div className="font-sans">
@@ -37,7 +41,10 @@ const Post = (props) => {
                   <line x1="8" y1="2" x2="8" y2="6"></line>
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-                <span>{postDate}</span>
+                <span>
+                  {dayjs(`${postDate}`).fromNow()} ~
+                  {dayjs(`${postDate}`).format("D MMMM, YYYY @h:mm A")}
+                </span>
               </div>
             </header>
             <article className="py-4 text-grey-darkest">{postContent}</article>
