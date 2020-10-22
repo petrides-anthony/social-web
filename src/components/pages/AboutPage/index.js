@@ -144,11 +144,6 @@ const AboutPage = (props) => {
                       Maiores impedit perferendis suscipit eaque, iste dolor
                       cupiditate blanditiis ratione.
                     </p>
-                    <p>
-                      {dayjs("2020-10-21T15:38:07.393Z").format(
-                        "DD-MM-YYYY HH:mm"
-                      )}
-                    </p>
                   </div>
                 </div>
               </li>
