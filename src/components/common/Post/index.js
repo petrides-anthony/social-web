@@ -9,6 +9,8 @@ const Post = (props) => {
   const postDate = postData.timestamp;
   const postContent = postData.content;
   const postLikes = postData.likes;
+  const postDateFromNow = dayjs(`${postDate}`).fromNow();
+  const postDateFormatted = dayjs(`${postDate}`).format("D/M/YYYY @h:mm A");
 
   //ToDO:
   // Day Js - use this to format date.
@@ -23,7 +25,7 @@ const Post = (props) => {
               <a href="#" className="text-black no-underline">
                 <span className="font-medium">{postUser}</span>
               </a>
-              <div className="text-xs text-grey flex items-center my-1">
+              <div className="text-xs text-grey flex items-start my-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -42,8 +44,8 @@ const Post = (props) => {
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
                 <span>
-                  {dayjs(`${postDate}`).fromNow()} ~
-                  {dayjs(`${postDate}`).format("D MMMM, YYYY @h:mm A")}
+                  {postDateFromNow} <br />
+                  {postDateFormatted}
                 </span>
               </div>
             </header>
