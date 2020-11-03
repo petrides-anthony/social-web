@@ -1,10 +1,15 @@
 import React from "react";
 import Button from "../../common/Button";
-import { useLogout, useIsAuthenticated } from "../../utils/Authentication";
+import {
+  useLogout,
+  useIsAuthenticated,
+  useUsername,
+} from "../../utils/Authentication";
 
 const NavBar = (props) => {
   const isAuthenticated = useIsAuthenticated();
   const logout = useLogout();
+  const username = useUsername();
   return (
     <nav className="bg-gray-800">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -62,9 +67,8 @@ const NavBar = (props) => {
               </div>
             </div>
           </div>
-
           {isAuthenticated ? (
-            <Button onClick={() => logout()}>Logout</Button>
+            <Button onClick={() => logout()}>Logout {username}</Button>
           ) : null}
         </div>
       </div>
