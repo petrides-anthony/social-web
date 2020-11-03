@@ -1,12 +1,31 @@
 import React, { useState } from "react";
+import { useQuery } from "react-query";
 import Button from "../Button";
+
+// We need to finish the addPosts function by figuring out how to send data in a json format
+// Refer to react query docs for mutations https://react-query.tanstack.com/docs/guides/mutations
+// Search for fetch send json as body and use react query to coordinate the mutation
 
 const AddPost = (props) => {
   const [postText, setPostText] = useState("");
 
+  const AddPosts = async () => {
+    const response = await fetch("http://localhost:3000/posts/");
+    return await response.json();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(postText);
+  };
+
   return (
     <div className="flex mx-auto items-center justify-center shadow-lg mb-4">
-      <form className="w-full bg-white rounded-lg px-4 pt-2">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full bg-white rounded-lg px-4 pt-2"
+      >
         <div className="flex flex-wrap -mx-3 mb-6">
           <h2 className="px-4 pt-3 pb-2 text-gray-800 text-lg">
             Add a new Post
@@ -40,11 +59,6 @@ const AddPost = (props) => {
               <p className="text-xs md:text-sm pt-px">{postText.length}/150</p>
             </div>
             <div className="-mr-1">
-              {/* <input
-                type="submit"
-                className="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100"
-                defaultValue="Post Comment"
-              /> */}
               <Button type="submit">Post</Button>
             </div>
           </div>
