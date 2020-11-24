@@ -1,23 +1,41 @@
 import React, { useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useMutation } from "react-query";
 import Button from "../Button";
+import {
+  useUsername,
+} from "../../utils/Authentication";
 
-// We need to finish the addPosts function by figuring out how to send data in a json format
-// Refer to react query docs for mutations https://react-query.tanstack.com/docs/guides/mutations
-// Search for fetch send json as body and use react query to coordinate the mutation
+// Next session we will write a test for the CreatePost function
+const createPost = async (post) => {
+  const res = await fetch('http://localhost:3000/posts/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(post)
+  });
+
+  if (!res.ok) {
+    throw new Error(`createPost failed with ${res.status}`);
+  }
+
+  const data = await res.json();
+  return data;
+};
 
 const AddPost = (props) => {
   const [postText, setPostText] = useState("");
+  const [mutate, { isLoading }] = useMutation(createPost);
+  const username = useUsername();
 
-  const AddPosts = async () => {
-    const response = await fetch("http://localhost:3000/posts/");
-    return await response.json();
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(postText);
+    const post = { user: username, content: postText };
+    try {
+      await mutate(post);
+      setPostText('');
+    } catch (error) {}
   };
 
   return (
@@ -39,6 +57,7 @@ const AddPost = (props) => {
               value={postText}
               onChange={(e) => setPostText(e.target.value)}
               maxLength={150}
+              disabled={isLoading}
             />
           </div>
           <div className="w-full md:w-full flex items-start md:w-full px-3">
@@ -59,7 +78,9 @@ const AddPost = (props) => {
               <p className="text-xs md:text-sm pt-px">{postText.length}/150</p>
             </div>
             <div className="-mr-1">
-              <Button type="submit">Post</Button>
+              <Button type="submit" disabled={isLoading}>
+                Post
+              </Button>
             </div>
           </div>
         </div>
